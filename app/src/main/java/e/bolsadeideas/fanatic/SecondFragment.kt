@@ -49,7 +49,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
             setFragmentResult("requestKeyFragment", bundleOf("bundleKey" to "$nombre $edad"))
 //            Using DeepLinking
 //            val action = SecondFragmentArgs.
-            findNavController().navigate(Uri.parse("fanatic://card"), bundleOf("nombre" to "Brayan"))
+            findNavController().navigate(Uri.parse("fanatic://card"))
         }
     }
 
