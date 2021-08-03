@@ -12,13 +12,14 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Upcoming" />
+        android:text="Upcoming Products" />
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_upcoming_products"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/product_item"
+        tools:listitem="@layout/product_item"/>
 
 
 </LinearLayout>
