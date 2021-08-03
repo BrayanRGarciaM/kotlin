@@ -14,7 +14,7 @@
         android:textStyle="bold"
         android:text="Popular Products" />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_popular_movies"
+        android:id="@+id/rv_popular_products"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:orientation="horizontal"
