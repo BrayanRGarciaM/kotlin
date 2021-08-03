@@ -8,7 +8,9 @@
         <entry key="..\:/Universidad/Kotlin/kotlin/app/src/main/res/drawable/ic_baseline_language_24.xml" value="0.2703125" />
         <entry key="..\:/Universidad/Kotlin/kotlin/app/src/main/res/drawable/ic_baseline_star_outline_24.xml" value="0.2703125" />
         <entry key="..\:/Universidad/Kotlin/kotlin/app/src/main/res/layout/fragment_card.xml" value="0.4" />
+        <entry key="..\:/Universidad/Kotlin/kotlin/app/src/main/res/layout/popular_product_row.xml" value="0.25416666666666665" />
         <entry key="..\:/Universidad/Kotlin/kotlin/app/src/main/res/layout/product_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Universidad/Kotlin/kotlin/app/src/main/res/layout/upcoming_product_row.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
