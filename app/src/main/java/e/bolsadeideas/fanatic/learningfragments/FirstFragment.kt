@@ -1,14 +1,13 @@
-package e.bolsadeideas.fanatic
+package e.bolsadeideas.fanatic.learningfragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.fragment.app.commit
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
+import e.bolsadeideas.fanatic.R
 
 
 class FirstFragment : Fragment(R.layout.fragment_first) {
@@ -19,7 +18,7 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         val txtViewInfo = view.findViewById<TextView>(R.id.txtViewFragm1Info)
         val button = view.findViewById<Button>(R.id.btnNavegarSegFragm)
 
-        setFragmentResultListener("requestKeyFragment"){ requestKey, bundle ->
+        setFragmentResultListener("requestKeyFragment"){ _ , bundle ->
             val result = bundle.getString("bundleKey")
             txtViewInfo.text = result
         }

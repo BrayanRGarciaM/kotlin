@@ -1,17 +1,13 @@
-package e.bolsadeideas.fanatic
+package e.bolsadeideas.fanatic.ui
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.commit
-import e.bolsadeideas.fanatic.databinding.ActivityMainBinding
+import e.bolsadeideas.fanatic.learningfragments.AuxActivity
+import e.bolsadeideas.fanatic.R
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem

@@ -1,10 +1,9 @@
-package e.bolsadeideas.fanatic
+package e.bolsadeideas.fanatic.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import e.bolsadeideas.fanatic.R
 import e.bolsadeideas.fanatic.databinding.FragmentCardBinding
 
 class CardFragment : Fragment(R.layout.fragment_card) {

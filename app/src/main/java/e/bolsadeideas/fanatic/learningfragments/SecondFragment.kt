@@ -1,4 +1,4 @@
-package e.bolsadeideas.fanatic
+package e.bolsadeideas.fanatic.learningfragments
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import e.bolsadeideas.fanatic.R
 
 /**
  * A simple [Fragment] subclass.
