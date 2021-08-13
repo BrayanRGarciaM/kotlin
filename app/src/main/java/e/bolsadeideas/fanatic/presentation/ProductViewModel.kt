@@ -8,16 +8,42 @@ import e.bolsadeideas.fanatic.repository.IProductRepository
 import kotlinx.coroutines.Dispatchers
 
 class ProductViewModel(private val repo: IProductRepository): ViewModel() {
-    fun fetchUppcomingMovies() = liveData(Dispatchers.IO) {
-        emit(Resource.Loading())
 
+    fun fetchMainViewMovies() = liveData(Dispatchers.IO) {
+        emit(Resource.Loading())
         try {
-            emit(Resource.Success(repo.getUpcomingMovies()))
+            emit(Resource.Success(Triple(repo.getUpcomingMovies(), repo.getPopularMovies(), repo.getTopRatedMovies())))
         }catch (e: Exception){
             emit(Resource.Failure<Exception>(e))
-
         }
     }
+
+//    fun fetchUpcomingMovies() = liveData(Dispatchers.IO) {
+//        emit(Resource.Loading())
+//        try {
+//            emit(Resource.Success(repo.getUpcomingMovies()))
+//        }catch (e: Exception){
+//            emit(Resource.Failure<Exception>(e))
+//        }
+//    }
+//
+//    fun fetchPopularMovies() = liveData(Dispatchers.IO) {
+//        emit(Resource.Loading())
+//        try {
+//            emit(Resource.Success(repo.getPopularMovies()))
+//        }catch (e: Exception){
+//            emit(Resource.Failure<Exception>(e))
+//        }
+//    }
+//
+//    fun fetchTopRatedMovies() = liveData(Dispatchers.IO) {
+//        emit(Resource.Loading())
+//        try {
+//            emit(Resource.Success(repo.getTopRatedMovies()))
+//        }catch (e: Exception){
+//            emit(Resource.Failure<Exception>(e))
+//        }
+//    }
 }
 
 class ProductViewModelFactory(private val repo: IProductRepository): ViewModelProvider.Factory{

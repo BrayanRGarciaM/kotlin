@@ -28,14 +28,33 @@ class ProductFragment : Fragment(R.layout.fragment_product) {
 
         binding = FragmentProductBinding.bind(view)
 
-        viewModel.fetchUppcomingMovies().observe(viewLifecycleOwner, Observer { result ->
+        subscribeViewModel()
+    }
+
+    fun subscribeViewModel(){
+        viewModel.fetchMainViewMovies().observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading -> { Log.d("LiveData", "Loading...")}
                 is Resource.Failure<*> -> {Log.d("LiveData", "Failure! ${result.exception}")}
-                is Resource.Success -> {Log.d("LiveData", "Success ${result.data}")}
+                is Resource.Success -> {Log.d("LiveData", "Success Upcoming Movies: ${result.data.first} \n \n Popular Movies: ${result.data.second} \n \n Top Rated Movies: ${result.data.third}")}
             }
-
         })
+
+//        viewModel.fetchPopularMovies().observe(viewLifecycleOwner, Observer { result ->
+//            when(result){
+//                is Resource.Loading -> { Log.d("LiveData", "Loading...")}
+//                is Resource.Failure<*> -> {Log.d("LiveData", "Failure! ${result.exception}")}
+//                is Resource.Success -> {Log.d("LiveData", "Success ${result.data}")}
+//            }
+//        })
+//
+//        viewModel.fetchTopRatedMovies().observe(viewLifecycleOwner, Observer { result ->
+//            when(result){
+//                is Resource.Loading -> { Log.d("LiveData", "Loading...")}
+//                is Resource.Failure<*> -> {Log.d("LiveData", "Failure! ${result.exception}")}
+//                is Resource.Success -> {Log.d("LiveData", "Success ${result.data}")}
+//            }
+//        })
     }
 
 }
