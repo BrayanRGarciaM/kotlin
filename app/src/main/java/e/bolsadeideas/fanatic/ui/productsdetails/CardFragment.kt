@@ -1,4 +1,4 @@
-package e.bolsadeideas.fanatic.ui
+package e.bolsadeideas.fanatic.ui.productsdetails
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
