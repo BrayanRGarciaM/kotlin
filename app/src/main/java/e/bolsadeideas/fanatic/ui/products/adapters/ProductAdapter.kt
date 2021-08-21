@@ -1,4 +1,4 @@
-package e.bolsadeideas.fanatic.ui.products.adapters.concat
+package e.bolsadeideas.fanatic.ui.products.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -41,6 +41,7 @@ class ProductAdapter(
         }
     }
 
+    // There are moviesList.size adapters
     override fun getItemCount(): Int = moviesList.size
 
     private inner class ProductViewHolder(
@@ -50,6 +51,7 @@ class ProductAdapter(
         override fun bind(item: Movie) {
             Glide.with(context).load("https://image.tmdb.org/t/p/w500${item.poster_path}")
                 .centerCrop().into(binding.imgProduct)
+            binding.txtProduct.text = item.title
         }
 
     }
