@@ -23,9 +23,27 @@
             android:id="@+id/deepLink"
             app:uri="fanatic://card" />
         <argument
-            android:name="nombre"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="NONE_NAME" />
+            android:name="posterImageUrl"
+            app:argType="string" />
+        <argument
+            android:name="backgroundImageUrl"
+            app:argType="string" />
+        <argument android:name="voteAverage"
+            app:argType="float" />
+        <argument
+            android:name="overview"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="language"
+            app:argType="string" />
+        <argument
+            android:name="releaseDate"
+            app:argType="string" />
+        <argument
+            android:name="voteCount"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import e.bolsadeideas.fanatic.R
 import e.bolsadeideas.fanatic.core.Resource
@@ -26,9 +27,13 @@ class ProductFragment : Fragment(R.layout.fragment_product), ProductAdapter.OnMo
 
     private lateinit var binding: FragmentProductBinding
     private lateinit var concatAdapter: ConcatAdapter
-    private val viewModel by viewModels<ProductViewModel> { ProductViewModelFactory(ProductRepositoryImpl(
-        MovieDataSource(RetrofitClient.webService)
-    )) }
+    private val viewModel by viewModels<ProductViewModel> {
+        ProductViewModelFactory(
+            ProductRepositoryImpl(
+                MovieDataSource(RetrofitClient.webService)
+            )
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,9 +44,9 @@ class ProductFragment : Fragment(R.layout.fragment_product), ProductAdapter.OnMo
         subscribeViewModel()
     }
 
-    fun subscribeViewModel(){
+    fun subscribeViewModel() {
         viewModel.fetchMainViewMovies().observe(viewLifecycleOwner, Observer { result ->
-            when(result){
+            when (result) {
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                 }
@@ -52,9 +57,33 @@ class ProductFragment : Fragment(R.layout.fragment_product), ProductAdapter.OnMo
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
                     concatAdapter.apply {
-                        addAdapter(0, UpcomingConcatAdapter(ProductAdapter(result.data.first.results,this@ProductFragment)))
-                        addAdapter(1, PopularConcatAdapter(ProductAdapter(result.data.second.results, this@ProductFragment)))
-                        addAdapter(2, TopRatedConcatAdapter(ProductAdapter(result.data.third.results, this@ProductFragment)))
+                        addAdapter(
+                            0,
+                            UpcomingConcatAdapter(
+                                ProductAdapter(
+                                    result.data.first.results,
+                                    this@ProductFragment
+                                )
+                            )
+                        )
+                        addAdapter(
+                            1,
+                            PopularConcatAdapter(
+                                ProductAdapter(
+                                    result.data.second.results,
+                                    this@ProductFragment
+                                )
+                            )
+                        )
+                        addAdapter(
+                            2,
+                            TopRatedConcatAdapter(
+                                ProductAdapter(
+                                    result.data.third.results,
+                                    this@ProductFragment
+                                )
+                            )
+                        )
                     }
                     binding.rvProducts.adapter = concatAdapter
                 }
@@ -80,6 +109,17 @@ class ProductFragment : Fragment(R.layout.fragment_product), ProductAdapter.OnMo
 
     override fun onMovieClick(movie: Movie) {
         Log.d("MOVIE", "${movie.title}")
+        val action = ProductFragmentDirections.actionProductFragmentToCardFragment(
+            movie.poster_path,
+            movie.backdrop_path,
+            movie.vote_average.toFloat(),
+            movie.overview,
+            movie.original_title,
+            movie.original_language,
+            movie.release_date,
+            movie.vote_count
+        )
+        findNavController().navigate(action)
     }
 
 }

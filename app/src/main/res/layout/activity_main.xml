@@ -31,15 +31,22 @@
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel"
         android:layout_width="match_parent"
-        android:layout_height="256dp" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container_view"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_height="256dp"
+        android:paddingBottom="20dp"/>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost = "true"
-        app:navGraph = "@navigation/product_graph"
-        />
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container_view"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost = "true"
+            app:navGraph = "@navigation/product_graph"
+            />
+
+    </ScrollView>
+
 
 </LinearLayout>
