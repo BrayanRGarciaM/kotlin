@@ -11,11 +11,10 @@ import androidx.recyclerview.widget.ConcatAdapter
 import e.bolsadeideas.fanatic.R
 import e.bolsadeideas.fanatic.core.Resource
 import e.bolsadeideas.fanatic.data.model.Movie
-import e.bolsadeideas.fanatic.data.remote.MovieDataSource
+import e.bolsadeideas.fanatic.data.remote.RemoteMovieDataSource
 import e.bolsadeideas.fanatic.databinding.FragmentProductBinding
 import e.bolsadeideas.fanatic.presentation.ProductViewModel
 import e.bolsadeideas.fanatic.presentation.ProductViewModelFactory
-import e.bolsadeideas.fanatic.repository.IProductRepository
 import e.bolsadeideas.fanatic.repository.ProductRepositoryImpl
 import e.bolsadeideas.fanatic.repository.RetrofitClient
 import e.bolsadeideas.fanatic.ui.products.adapters.PopularConcatAdapter
@@ -30,7 +29,7 @@ class ProductFragment : Fragment(R.layout.fragment_product), ProductAdapter.OnMo
     private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(
             ProductRepositoryImpl(
-                MovieDataSource(RetrofitClient.webService)
+                RemoteMovieDataSource(RetrofitClient.webService)
             )
         )
     }

@@ -4,7 +4,7 @@ import e.bolsadeideas.fanatic.data.model.MovieList
 import e.bolsadeideas.fanatic.repository.WebService
 import e.bolsadeideas.fanatic.utils.Constants
 
-class MovieDataSource (private val webService: WebService){
+class RemoteMovieDataSource (private val webService: WebService){
 
     suspend fun getUpcomingMovies(): MovieList{
         return webService.getUpcomingMovies(Constants.API_KEY)
