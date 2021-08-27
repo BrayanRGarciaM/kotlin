@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import e.bolsadeideas.fanatic.R
 import e.bolsadeideas.fanatic.core.Resource
+import e.bolsadeideas.fanatic.data.local.AppDatabase
+import e.bolsadeideas.fanatic.data.local.LocalMovieDataSource
 import e.bolsadeideas.fanatic.data.model.Movie
 import e.bolsadeideas.fanatic.data.remote.RemoteMovieDataSource
 import e.bolsadeideas.fanatic.databinding.FragmentProductBinding
@@ -29,7 +31,8 @@ class ProductFragment : Fragment(R.layout.fragment_product), ProductAdapter.OnMo
     private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(
             ProductRepositoryImpl(
-                RemoteMovieDataSource(RetrofitClient.webService)
+                RemoteMovieDataSource(RetrofitClient.webService),
+                LocalMovieDataSource(AppDatabase.getDatabase(requireContext()).movieDao())
             )
         )
     }

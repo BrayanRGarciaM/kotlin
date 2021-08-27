@@ -79,6 +79,25 @@ fun MovieEntity.toMovie(): Movie{
         this.video,
         this.vote_average,
         this.vote_count,
-        this.movie_type,
+        this.movie_type
+    )
+}
+
+fun Movie.toMovieEntity(movietype: String): MovieEntity{
+    return MovieEntity(
+        this.id,
+        this.adult,
+        this.backdrop_path,
+        this.original_title,
+        this.original_language,
+        this.overview,
+        this.popularity,
+        this.poster_path,
+        this.release_date,
+        this.title,
+        this.video,
+        this.vote_average,
+        this.vote_count,
+        movie_type = movietype
     )
 }

@@ -14,11 +14,13 @@ abstract class AppDatabase: RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase{
-            return INSTANCE ?: Room.databaseBuilder(
+            INSTANCE = INSTANCE ?: Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
                 "movie-table"
             ).build()
+
+            return INSTANCE as AppDatabase
         }
     }
 }
